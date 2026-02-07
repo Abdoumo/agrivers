@@ -1,5 +1,4 @@
 import { createServer } from "../server";
 
-const app = createServer();
-
-export default app;
+// Create and export the Express app
+export default createServer();
