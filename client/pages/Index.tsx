@@ -15,7 +15,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Leaf className="w-8 h-8 text-primary" />
-            <span className="font-bold text-xl text-foreground">AgroConnect</span>
+            <span className="font-bold text-xl text-foreground">Agrivers</span>
           </div>
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
@@ -223,10 +223,10 @@ export default function Index() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
               <Leaf className="w-6 h-6 text-primary" />
-              <span className="font-bold text-foreground">AgroConnect</span>
+              <span className="font-bold text-foreground">Agrivers</span>
             </div>
             <p className="text-muted-foreground text-sm">
-              © 2024 AgroConnect. Connecting farms to markets.
+              © 2024 Agrivers. Connecting farms to markets.
             </p>
           </div>
         </div>

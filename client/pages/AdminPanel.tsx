@@ -149,7 +149,7 @@ export default function AdminPanel() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Leaf className="w-8 h-8 text-primary" />
-            <span className="font-bold text-xl text-foreground">AgroConnect Admin</span>
+            <span className="font-bold text-xl text-foreground">Agrivers Admin</span>
           </div>
           <button
             onClick={handleLogout}
