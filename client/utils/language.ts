@@ -133,6 +133,9 @@ export const translations = {
     "common.download": "Download",
     "common.addFarm": "Add Farm",
     "common.addDemand": "Add Demand",
+
+    // Footer
+    "footer.contact": "Contact",
   },
   ar: {
     // Home
@@ -255,6 +258,9 @@ export const translations = {
     "common.download": "تحميل",
     "common.addFarm": "إضافة مزرعة",
     "common.addDemand": "إضافة طلب",
+
+    // Footer
+    "footer.contact": "اتصل",
   },
 };
 

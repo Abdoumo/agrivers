@@ -226,7 +226,7 @@ export default function Index() {
               <span className="font-bold text-foreground">Agrivers</span>
             </div>
             <p className="text-muted-foreground text-sm">
-              © 2024 Agrivers. Connecting farms to markets.
+              © 2026 Agrivers. Connecting farms to markets.
             </p>
             <a
               href="mailto:agriversdz@gmail.com"
