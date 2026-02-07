@@ -65,8 +65,8 @@ export function createServer() {
     }));
   }
 
-  // SPA fallback: serve index.html
-  app.get("*", (_req, res) => {
+  // SPA fallback: serve index.html for all other routes
+  app.use((_req, res) => {
     const indexPath = path.join(spaDir, "index.html");
     try {
       if (fs.existsSync(indexPath)) {
