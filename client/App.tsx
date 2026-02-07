@@ -15,6 +15,8 @@ import TraderDashboard from "./pages/TraderDashboard";
 import MarketAnalysis from "./pages/MarketAnalysis";
 import PrePlantingMatch from "./pages/PrePlantingMatch";
 import AdminPanel from "./pages/AdminPanel";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import { LanguageProvider } from "./components/LanguageProvider";
 import { useEffect } from "react";
 
@@ -76,6 +78,8 @@ const App = () => {
               <Route path="/" element={<Index />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/farmer-dashboard" element={<FarmerDashboard />} />
               <Route path="/trader-dashboard" element={<TraderDashboard />} />
               <Route path="/market-analysis" element={<MarketAnalysis />} />

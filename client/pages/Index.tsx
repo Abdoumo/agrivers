@@ -1,23 +1,39 @@
-import { ArrowRight, Leaf, TrendingUp, Users, Zap } from "lucide-react";
+import { ArrowRight, Leaf, TrendingUp, Users, Zap, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/components/LanguageProvider";
 import { translations } from "@/utils/language";
+import { useState } from "react";
 
 export default function Index() {
   const { language } = useLanguage();
   const t = (key: string) => (translations[language] as any)[key] || key;
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="border-b border-border">
+      <nav className="border-b border-border sticky top-0 z-50 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <Leaf className="w-8 h-8 text-primary" />
             <span className="font-bold text-xl text-foreground">Agrivers</span>
-          </div>
-          <div className="flex items-center gap-4">
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link
+              to="/about"
+              className="text-foreground hover:text-primary transition-colors font-medium text-sm"
+            >
+              {t("nav.about")}
+            </Link>
+            <Link
+              to="/contact"
+              className="text-foreground hover:text-primary transition-colors font-medium text-sm"
+            >
+              {t("nav.contact")}
+            </Link>
             <LanguageSwitcher />
             <Link
               to="/login"
@@ -32,7 +48,58 @@ export default function Index() {
               {t("nav.register")}
             </Link>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-border bg-background">
+            <div className="px-4 py-4 space-y-3">
+              <Link
+                to="/about"
+                className="block text-foreground hover:text-primary transition-colors font-medium py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t("nav.about")}
+              </Link>
+              <Link
+                to="/contact"
+                className="block text-foreground hover:text-primary transition-colors font-medium py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t("nav.contact")}
+              </Link>
+              <div className="py-2 border-t border-border pt-3">
+                <LanguageSwitcher />
+              </div>
+              <Link
+                to="/login"
+                className="block text-foreground hover:text-primary transition-colors font-medium py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t("nav.login")}
+              </Link>
+              <Link
+                to="/register"
+                className="block bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium text-center"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t("nav.register")}
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}

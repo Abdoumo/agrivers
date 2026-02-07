@@ -52,10 +52,13 @@ export const translations = {
     "home.startFree": "Start for Free",
 
     // Navigation
+    "nav.home": "Home",
     "nav.login": "Login",
     "nav.register": "Register",
     "nav.logout": "Logout",
     "nav.welcome": "Welcome",
+    "nav.about": "About Us",
+    "nav.contact": "Contact Us",
 
     // Auth Pages
     "auth.welcomeBack": "Welcome Back",
@@ -134,6 +137,46 @@ export const translations = {
     "common.addFarm": "Add Farm",
     "common.addDemand": "Add Demand",
 
+    // About Page
+    "about.title": "About Agrivers",
+    "about.subtitle": "Transforming agriculture through intelligent market connections and data-driven insights",
+    "about.mission": "Our Mission",
+    "about.missionDesc": "Agrivers bridges the gap between farmers and traders by providing intelligent market analysis tools and pre-planting coordination systems. We empower agricultural stakeholders with data and insights to make better decisions.",
+    "about.missionDesc2": "Our platform reduces waste, increases profitability, and creates sustainable connections throughout the agricultural supply chain.",
+    "about.vision": "Our Values",
+    "about.sustainability": "Sustainability",
+    "about.sustainabilityDesc": "We believe in promoting environmentally responsible farming practices that benefit both farmers and future generations.",
+    "about.innovation": "Innovation",
+    "about.innovationDesc": "Cutting-edge technology and data science drive our solutions to solve real agricultural challenges.",
+    "about.community": "Community",
+    "about.communityDesc": "We build a trusted community where farmers, traders, and stakeholders collaborate for mutual success.",
+    "about.team": "Join Our Team",
+    "about.teamDesc": "We're always looking for passionate individuals to help us transform agriculture. Contact us to learn about opportunities.",
+    "about.joiningTeam": "We're growing and would love to hear from talented professionals interested in agriculture and technology",
+    "about.readyJoin": "Ready to Join Us?",
+    "about.joinDesc": "Start connecting your farm or business to the broader agricultural network today",
+    "about.startNow": "Start Now",
+
+    // Contact Page
+    "contact.title": "Get In Touch",
+    "contact.subtitle": "We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+    "contact.email": "Email",
+    "contact.phone": "Phone",
+    "contact.phoneAvailable": "Available during business hours",
+    "contact.location": "Location",
+    "contact.region": "Serving communities across the GCC region",
+    "contact.sendMessage": "Send us a Message",
+    "contact.namePlaceholder": "Your full name",
+    "contact.emailPlaceholder": "your@email.com",
+    "contact.subject": "Subject",
+    "contact.subjectPlaceholder": "What is this about?",
+    "contact.message": "Message",
+    "contact.messagePlaceholder": "Tell us more about your inquiry...",
+    "contact.send": "Send Message",
+    "contact.thankYou": "Thank You!",
+    "contact.successMsg": "We've received your message and will get back to you shortly.",
+    "contact.redirecting": "Redirecting you to the home page...",
+
     // Footer
     "footer.contact": "Contact",
   },
@@ -177,10 +220,13 @@ export const translations = {
     "home.startFree": "ابدأ مجانًا",
 
     // Navigation
+    "nav.home": "الرئيسية",
     "nav.login": "تسجيل الدخول",
     "nav.register": "إنشاء حساب",
     "nav.logout": "تسجيل الخروج",
     "nav.welcome": "مرحبا",
+    "nav.about": "من نحن",
+    "nav.contact": "اتصل بنا",
 
     // Auth Pages
     "auth.welcomeBack": "أهلا وسهلا",
@@ -258,6 +304,46 @@ export const translations = {
     "common.download": "تحميل",
     "common.addFarm": "إضافة مزرعة",
     "common.addDemand": "إضافة طلب",
+
+    // About Page
+    "about.title": "عن أغريفرز",
+    "about.subtitle": "تحويل الزراعة من خلال الاتصالات السوقية الذكية والرؤى المبنية على البيانات",
+    "about.mission": "مهمتنا",
+    "about.missionDesc": "تسد أغريفرز الفجوة بين المزارعين والتجار من خلال توفير أدوات تحليل السوق الذكية وأنظمة التنسيق قبل الزراعة. نحن نمكن أصحاب المصلحة الزراعيين بالبيانات والرؤى لاتخاذ قرارات أفضل.",
+    "about.missionDesc2": "تقلل منصتنا الهدر وتزيد الربحية وتخلق اتصالات مستدامة في جميع سلسلة التوريد الزراعية.",
+    "about.vision": "قيمنا",
+    "about.sustainability": "الاستدامة",
+    "about.sustainabilityDesc": "نؤمن بتعزيز الممارسات الزراعية المسؤولة بيئياً التي تفيد المزارعين والأجيال القادمة.",
+    "about.innovation": "الابتكار",
+    "about.innovationDesc": "تقنية متقدمة وعلوم البيانات تدفع حلولنا لحل التحديات الزراعية الحقيقية.",
+    "about.community": "المجتمع",
+    "about.communityDesc": "نحن نبني مجتمعاً موثوقاً حيث يتعاون المزارعون والتجار وأصحاب المصلحة لتحقيق النجاح المتبادل.",
+    "about.team": "انضم إلى فريقنا",
+    "about.teamDesc": "نحن نبحث دائماً عن أفراد متحمسين لمساعدتنا على تحويل الزراعة. تواصل معنا لمعرفة الفرص.",
+    "about.joiningTeam": "نحن في مرحلة نمو ونود أن نسمع من محترفين موهوبين مهتمين بالزراعة والتكنولوجيا",
+    "about.readyJoin": "هل أنت مستعد للانضمام إلينا؟",
+    "about.joinDesc": "ابدأ بربط مزرعتك أو عملك بالشبكة الزراعية الأوسع اليوم",
+    "about.startNow": "ابدأ الآن",
+
+    // Contact Page
+    "contact.title": "تواصل معنا",
+    "contact.subtitle": "نود أن نسمع منك. أرسل لنا رسالة وسنرد في أقرب وقت ممكن.",
+    "contact.email": "البريد الإلكتروني",
+    "contact.phone": "الهاتف",
+    "contact.phoneAvailable": "متاح خلال ساعات العمل",
+    "contact.location": "الموقع",
+    "contact.region": "خدمة المجتمعات في منطقة دول مجلس التعاون الخليجي",
+    "contact.sendMessage": "أرسل لنا رسالة",
+    "contact.namePlaceholder": "اسمك الكامل",
+    "contact.emailPlaceholder": "your@email.com",
+    "contact.subject": "الموضوع",
+    "contact.subjectPlaceholder": "عما تتحدث؟",
+    "contact.message": "الرسالة",
+    "contact.messagePlaceholder": "أخبرنا المزيد عن استفسارك...",
+    "contact.send": "إرسال الرسالة",
+    "contact.thankYou": "شكراً لك!",
+    "contact.successMsg": "لقد تلقينا رسالتك وسنرد عليك قريباً.",
+    "contact.redirecting": "إعادة التوجيه إلى الصفحة الرئيسية...",
 
     // Footer
     "footer.contact": "اتصل",
