@@ -220,14 +220,20 @@ export default function Index() {
       {/* Footer */}
       <footer className="bg-muted/30 border-t border-border py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center gap-2 mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-2">
               <Leaf className="w-6 h-6 text-primary" />
               <span className="font-bold text-foreground">Agrivers</span>
             </div>
             <p className="text-muted-foreground text-sm">
               © 2024 Agrivers. Connecting farms to markets.
             </p>
+            <a
+              href="mailto:agriversdz@gmail.com"
+              className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
+            >
+              {t("footer.contact")}: agriversdz@gmail.com
+            </a>
           </div>
         </div>
       </footer>
