@@ -4,30 +4,17 @@
   "installCommand": "pnpm install",
   "builds": [
     {
-      "src": "dist/spa",
-      "use": "@vercel/static"
-    },
-    {
       "src": "api/index.ts",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["dist/spa/**/*"]
+      }
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/index.ts"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "dist/spa/assets/$1"
-    },
-    {
-      "src": "/(.*\\..*)",
-      "dest": "dist/spa/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "dist/spa/index.html"
+      "dest": "api/index.ts"
     }
   ]
 }
