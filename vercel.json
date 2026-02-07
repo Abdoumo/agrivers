@@ -3,17 +3,26 @@
   "buildCommand": "pnpm run build",
   "builds": [
     {
+      "src": "dist/spa",
+      "use": "@vercel/static"
+    },
+    {
       "src": "api/index.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "dest": "api/index.ts"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "dist/spa/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "dist/spa/index.html"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
