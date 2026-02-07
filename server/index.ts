@@ -10,32 +10,39 @@ import { handleDemo } from "./routes/demo";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Determine SPA directory path - works in both dev and production
-const getSpaDir = () => {
-  // In Vercel serverless, the structure is typically:
-  // /var/task/dist/spa (files are included via includeFiles)
-  // /var/task/dist/server/production.mjs (__dirname points here)
-  const possiblePaths = [
-    path.resolve(__dirname, "..", "spa"),           // dist/server -> dist/spa
-    path.resolve(process.cwd(), "dist", "spa"),     // From root
-    path.resolve(__dirname, "..", "..", "dist", "spa"), // Additional fallback
+// Determine SPA directory - optimized for both local and Vercel environments
+const getSpaDir = (): string => {
+  // In local dev: __dirname = project_root/
+  // In Vercel: __dirname = /var/task/dist/server, dist/spa is at /var/task/dist/spa
+
+  const candidatePaths = [
+    // Vercel production path
+    path.resolve("/var/task/dist/spa"),
+    // Local dev and fallback paths
+    path.resolve(__dirname, "..", "spa"),
+    path.resolve(process.cwd(), "dist", "spa"),
   ];
 
-  for (const dir of possiblePaths) {
-    if (fs.existsSync(dir) && fs.existsSync(path.join(dir, "index.html"))) {
-      console.log(`✓ SPA directory found: ${dir}`);
-      return dir;
+  for (const dir of candidatePaths) {
+    const indexPath = path.join(dir, "index.html");
+    try {
+      if (fs.existsSync(dir) && fs.existsSync(indexPath)) {
+        console.log(`✓ SPA directory: ${dir}`);
+        return dir;
+      }
+    } catch (e) {
+      // Continue to next path if access fails
     }
   }
 
-  // If nothing found, default to most likely path (will error gracefully)
-  console.warn(`⚠ SPA directory not found in: ${possiblePaths.join(", ")}`);
-  return possiblePaths[0];
+  console.warn(`⚠ No SPA directory found. Checked: ${candidatePaths.join(", ")}`);
+  return candidatePaths[0];
 };
+
+const spaDir = getSpaDir();
 
 export function createServer() {
   const app = express();
-  const spaDir = getSpaDir();
 
   // Middleware
   app.use(cors());
@@ -50,23 +57,25 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
-  // Serve static files from SPA directory
-  app.use(express.static(spaDir, {
-    maxAge: "1d",
-    etag: false,
-  }));
+  // Serve static files
+  if (fs.existsSync(spaDir)) {
+    app.use(express.static(spaDir, {
+      maxAge: "1d",
+      etag: false,
+    }));
+  }
 
-  // SPA fallback: serve index.html for any non-API routes
-  app.use((_req, res) => {
+  // SPA fallback: serve index.html
+  app.get("*", (_req, res) => {
     const indexPath = path.join(spaDir, "index.html");
-
-    if (fs.existsSync(indexPath)) {
-      res.sendFile(indexPath);
-    } else {
-      res.status(404).json({
-        error: "Not found",
-        spaDir,
-      });
+    try {
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+      } else {
+        res.status(404).json({ error: "index.html not found" });
+      }
+    } catch (err) {
+      res.status(500).json({ error: "Server error" });
     }
   });
 

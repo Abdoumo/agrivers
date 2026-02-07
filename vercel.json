@@ -7,7 +7,7 @@
       "src": "api/index.ts",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["dist/spa/**/*"]
+        "includeFiles": ["dist/**"]
       }
     }
   ],
