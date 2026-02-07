@@ -2,11 +2,8 @@
   "version": 2,
   "buildCommand": "pnpm run build",
   "installCommand": "pnpm install",
+  "public": "dist/spa",
   "builds": [
-    {
-      "src": "dist/spa",
-      "use": "@vercel/static"
-    },
     {
       "src": "api/index.ts",
       "use": "@vercel/node"
@@ -22,12 +19,12 @@
       "dest": "dist/spa/assets/$1"
     },
     {
-      "src": "^(?!/api)[^.]*$",
-      "dest": "dist/spa/index.html"
+      "src": "/(.*\\..*)",
+      "dest": "dist/spa/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "dist/spa/$1"
+      "dest": "dist/spa/index.html"
     }
   ]
 }

@@ -1,4 +1,6 @@
+import serverless from "serverless-http";
 import { createServer } from "../server";
 
-// Create and export the Express app
-export default createServer();
+const app = createServer();
+
+export default serverless(app);
