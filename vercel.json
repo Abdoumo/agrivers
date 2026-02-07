@@ -1,20 +1,33 @@
 {
   "version": 2,
   "buildCommand": "pnpm run build",
-  "installCommand": "pnpm install --frozen-lockfile",
+  "installCommand": "pnpm install",
   "builds": [
     {
+      "src": "dist/spa",
+      "use": "@vercel/static"
+    },
+    {
       "src": "api/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/spa/**", "dist/server/**"]
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "dest": "api/index.ts"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "dist/spa/assets/$1"
+    },
+    {
+      "src": "^(?!/api)[^.]*$",
+      "dest": "dist/spa/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "dist/spa/$1"
     }
   ]
 }
